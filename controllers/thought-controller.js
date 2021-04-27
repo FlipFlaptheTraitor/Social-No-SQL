@@ -70,14 +70,12 @@ updateThought({ params, body }, res) {
 
 // DELETE /api/thoughts/:id
 deleteThought({ params }, res) {
-    // delete the thought
     Thought.findOneAndDelete({ _id: params.id })
     .then(dbThoughtData => {
         if (!dbThoughtData) {
             res.status(404).json({ message: 'No thought found with this id'});
             return;
         }
-        // delete the reference to deleted thought in user's thought array
         User.findOneAndUpdate(
             { username: dbThoughtData.username },
             { $pull: { thoughts: params.id } }
