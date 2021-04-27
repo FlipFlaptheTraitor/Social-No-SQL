@@ -18,7 +18,7 @@ router
 // /api/pizzas/:id
 router
   .route('/:id')
-  .get(getUserById)
+  .get( getUserById)
   .put(updateUser)
   .delete(deleteUser);
 

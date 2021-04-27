@@ -1,7 +1,7 @@
-const { Schema, model } = require('mongoose');
+const { Schema, Types } = require('mongoose');
 
 
-const ReactionSchema = new Schema(
+const reactionSchema = new Schema(
     {
         reactionId: {
             type: Types.ObjectId,
@@ -10,7 +10,7 @@ const ReactionSchema = new Schema(
         reactionBody: {
             type:String ,
             required: true,
-            maxLength: 280;
+            maxLength: 280
             
          },
          username: {
@@ -25,4 +25,4 @@ const ReactionSchema = new Schema(
     });
 
 
-module.exports = ReactionSchema;
+module.exports = reactionSchema;
